@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CardGameEngine.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,9 @@ namespace CardGameEngine
         public MainWindow()
         {
             InitializeComponent();
+            StartMenuForCardGameView startMenuForCardGameView = new StartMenuForCardGameView();
+            startMenuForCardGameView.Show();
+            this.Close();
         }
     }
 }
