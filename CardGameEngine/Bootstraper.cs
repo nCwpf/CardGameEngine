@@ -12,6 +12,7 @@ namespace CardGameEngine
             var builder = new ContainerBuilder();
 
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly()).Where(x => x.Name.EndsWith("ViewModel")).AsSelf();
+            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly()).Where(x => x.Name.EndsWith("Service")).AsImplementedInterfaces();
 
             Container = builder.Build();
         }

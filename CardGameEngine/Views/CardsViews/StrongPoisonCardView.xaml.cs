@@ -1,6 +1,4 @@
-﻿using Autofac;
-using CardGameEngine.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,18 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace CardGameEngine.Views
+namespace CardGameEngine.Views.CardsViews
 {
     /// <summary>
-    /// Interaction logic for CardStatusView.xaml
+    /// Interaction logic for StrongPoisonCardView.xaml
     /// </summary>
-    public partial class CardStatusView : Window
+    public partial class StrongPoisonCardView : Window
     {
-        public CardStatusView()
+        public StrongPoisonCardView()
         {
             InitializeComponent();
-            DataContext = Bootstraper.Container.Resolve<CardStatusViewModel>();
-
         }
     }
 }

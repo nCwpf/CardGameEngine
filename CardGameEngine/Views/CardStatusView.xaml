@@ -17,14 +17,14 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
- 
-        <Button Content="Strong Armor Card" Grid.Column="0"></Button>
-        <Button Content="Strong Damage Card" Grid.Column="1"></Button>
-        <Button Content="Strong Healing Card" Grid.Column="2"></Button>
-        <Button Content="Strong Poison Card" Grid.Column="3"></Button>
-        <Button Content="Weak Armor Card" Grid.Column="4"></Button>
-        <Button Content="Weak Damage Card" Grid.Column="5"></Button>
-        <Button Content="Weak Healing Card" Grid.Column="6"></Button>
-        <Button Content="Weak Poison Card" Grid.Column="7"></Button>
+
+        <Button Content="Strong Armor Card" Grid.Column="0" Command="{Binding Path=OpenStrongArmorCardViewCommand}"></Button>
+        <Button Content="Strong Damage Card" Grid.Column="1" Command="{Binding Path=OpenStrongDamageCardViewCommand}"></Button>
+        <Button Content="Strong Healing Card" Grid.Column="2" Command="{Binding Path=OpenStrongHealingCardViewCommand}"></Button>
+        <Button Content="Strong Poison Card" Grid.Column="3" Command="{Binding Path=OpenStrongPoisonCardViewCommand}"></Button>
+        <Button Content="Weak Armor Card" Grid.Column="4" Command="{Binding Path=OpenWeakArmorCardViewCommand}"></Button>
+        <Button Content="Weak Damage Card" Grid.Column="5" Command="{Binding Path=OpenWeakDamageCardViewCommand}"></Button>
+        <Button Content="Weak Healing Card" Grid.Column="6" Command="{Binding Path=OpenWeakHealingCardViewCommand}"></Button>
+        <Button Content="Weak Poison Card" Grid.Column="7" Command="{Binding Path=OpenWeakPoisonCardViewCommand}"></Button>
     </Grid>
 </Window>

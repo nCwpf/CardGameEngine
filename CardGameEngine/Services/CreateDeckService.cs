@@ -22,7 +22,7 @@ namespace CardGameEngine.Services
             Random random = new Random();
             List<int> numbers = new List<int>();
             List<ICard> cards = new List<ICard>();
-            while (cards.Count!=Deck.Count)
+            while (cards.Count != Deck.Count)
             {
                 int number = random.Next();
                 if (numbers.Contains(number))

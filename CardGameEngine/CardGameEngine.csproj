@@ -73,11 +73,36 @@
     <Compile Include="Bootstraper.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="Services\CreateDeckService.cs" />
+    <Compile Include="ViewModels\CardStatusViewModel.cs" />
     <Compile Include="ViewModels\CreateDeckViewModel.cs" />
     <Compile Include="ViewModels\FieldGridViewModel.cs" />
     <Compile Include="ViewModels\StartMenuForCardGameViewModel.cs" />
     <Compile Include="Views\CardStatusView.xaml.cs">
       <DependentUpon>CardStatusView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CardsViews\StrongArmorCardView.xaml.cs">
+      <DependentUpon>StrongArmorCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CardsViews\StrongDamageCardView.xaml.cs">
+      <DependentUpon>StrongDamageCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CardsViews\StrongHealingCardView.xaml.cs">
+      <DependentUpon>StrongHealingCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CardsViews\StrongPoisonCardView.xaml.cs">
+      <DependentUpon>StrongPoisonCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CardsViews\WeakArmorCardView.xaml.cs">
+      <DependentUpon>WeakArmorCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CardsViews\WeakDamageCardView.xaml.cs">
+      <DependentUpon>WeakDamageCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CardsViews\WeakHealingCardView.xaml.cs">
+      <DependentUpon>WeakHealingCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CardsViews\WeakPoisonCardView.xaml.cs">
+      <DependentUpon>WeakPoisonCardView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CreateDeckView.xaml.cs">
       <DependentUpon>CreateDeckView.xaml</DependentUpon>
@@ -101,6 +126,38 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\CardStatusView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CardsViews\StrongArmorCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CardsViews\StrongDamageCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CardsViews\StrongHealingCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CardsViews\StrongPoisonCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CardsViews\WeakArmorCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CardsViews\WeakDamageCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CardsViews\WeakHealingCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CardsViews\WeakPoisonCardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,7 +203,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\" />
-    <Folder Include="Views\CardsViews\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CardGame.Data\CardGame.Data.csproj">
