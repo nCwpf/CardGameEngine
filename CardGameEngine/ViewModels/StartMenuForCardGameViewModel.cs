@@ -10,25 +10,26 @@ namespace CardGameEngine.ViewModels
 
         public StartMenuForCardGameViewModel()
         {
-            RelayCommand = new RelayCommand<Window>(Click);
+            OpenCreateDeckViewCommand = new RelayCommand<Window>(OpenCreateDeckView);
+            OpenCardStatusViewCommand = new RelayCommand<Window>(OpenCardStatusView);
         }
 
-        public event EventHandler CanExecuteChanged;
+        public RelayCommand<Window> OpenCardStatusViewCommand { get; private set; }
 
-        private ICommand command;
-
-        public RelayCommand<Window> RelayCommand { get; private set; }
+        public RelayCommand<Window> OpenCreateDeckViewCommand { get; private set; }
 
         
 
-        public void Click(Window window)
+        private void OpenCreateDeckView(Window window)
         {
-            FieldGridView fieldGridView = new FieldGridView();
-            fieldGridView.Show();
-            if (window is StartMenuForCardGameView)
-            {
-                window.Close();
-            }
+            CreateDeckView createDeckView = new CreateDeckView();
+            createDeckView.Show();
+        }
+
+        private void OpenCardStatusView(Window window)
+        {
+            CardStatusView cardStatusView = new CardStatusView();
+            cardStatusView.Show();
         }
     }
 }
