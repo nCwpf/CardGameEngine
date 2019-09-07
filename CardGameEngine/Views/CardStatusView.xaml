@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CardGameEngine.Views"
         mc:Ignorable="d"
-        Title="CardStatusView" Height="450" Width="800">
+        Title="CardStatusView" Height="450" Width="1000">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+ 
+        <Button Content="Strong Armor Card" Grid.Column="0"></Button>
+        <Button Content="Strong Damage Card" Grid.Column="1"></Button>
+        <Button Content="Strong Healing Card" Grid.Column="2"></Button>
+        <Button Content="Strong Poison Card" Grid.Column="3"></Button>
+        <Button Content="Weak Armor Card" Grid.Column="4"></Button>
+        <Button Content="Weak Damage Card" Grid.Column="5"></Button>
+        <Button Content="Weak Healing Card" Grid.Column="6"></Button>
+        <Button Content="Weak Poison Card" Grid.Column="7"></Button>
     </Grid>
 </Window>
