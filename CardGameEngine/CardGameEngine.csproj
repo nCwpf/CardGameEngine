@@ -210,5 +210,26 @@
       <Name>CardGame.Data</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WeakDamageImg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WeakHealingImg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WeakPoisonImg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WeakArmorImg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\StrongArmorImg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\StrongDamageImg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\StrongPoisonImg.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
