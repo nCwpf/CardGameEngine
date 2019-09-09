@@ -214,9 +214,6 @@
     <Resource Include="Images\WeakDamageImg.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\WeakHealingImg.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\WeakPoisonImg.png" />
   </ItemGroup>
   <ItemGroup>
@@ -230,6 +227,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\StrongPoisonImg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\StrongHealingImg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\W.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\r6EFKGhexmhp8ajfnpKzCV6b8.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,13 +9,15 @@ namespace CardGameEngine.Services
 {
     public class CreateDeckService
     {
+
+
         public CreateDeckService(List<ICard> deck)
         {
             Deck = deck;
             Deck = Suffle();
         }
 
-        public List<ICard> Deck { get; set; }
+        public static List<ICard> Deck { get; set; }
 
         private List<ICard> Suffle()
         {

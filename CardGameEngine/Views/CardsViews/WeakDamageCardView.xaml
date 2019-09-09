@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CardGameEngine.Views.CardsViews"
         mc:Ignorable="d"
-        Title="WeakDamageCardView" Height="450" Width="800" Background="AliceBlue">
+        Title="WeakDamageCardView" Height="450" Width="800" Background="#530E17">
     <Grid>
         <TextBlock Text="Damage 10" FontSize="30" Margin="290,120,0,0"></TextBlock>
         <TextBlock Text="Cost 2" FontSize="30" Margin="220,150,0,0"></TextBlock>

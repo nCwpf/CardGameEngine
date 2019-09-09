@@ -53,10 +53,12 @@
     <Compile Include="Classes\Cards\Weak\WeakDamageCard.cs" />
     <Compile Include="Classes\Cards\Weak\WeakHealingCard.cs" />
     <Compile Include="Classes\Cards\Weak\WeakPoisonCard.cs" />
+    <Compile Include="Classes\Player.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Position.cs" />
     <Compile Include="Common\TypeOfEffect.cs" />
     <Compile Include="Interfaces\ICard.cs" />
+    <Compile Include="Interfaces\IPlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

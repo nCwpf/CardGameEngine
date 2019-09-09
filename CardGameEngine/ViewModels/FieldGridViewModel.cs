@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CardGame.Data.Interfaces;
+using CardGameEngine.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +10,9 @@ namespace CardGameEngine.ViewModels
 {
     public class FieldGridViewModel
     {
+        private List<ICard> GetCards()
+        {
+            return CreateDeckService.Deck;
+        }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CardGameEngine.Views.CardsViews"
         mc:Ignorable="d"
-        Title="StrongArmorCardView" Height="450" Width="800">
+        Title="StrongArmorCardView" Height="450" Width="800" Background="Silver">
     <Grid>
         <TextBlock Text="Armor 20" FontSize="30" Margin="200,150,0,0"></TextBlock>
         <TextBlock Text="Cost 3" FontSize="30" Margin="240,180,0,0"></TextBlock>

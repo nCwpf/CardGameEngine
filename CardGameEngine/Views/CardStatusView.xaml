@@ -18,7 +18,11 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Button Content="Strong Armor Card" Grid.Column="0" Command="{Binding Path=OpenStrongArmorCardViewCommand}"></Button>
+        <Button Content="Strong Armor Card" FontStyle="Oblique" Grid.Column="0" Command="{Binding Path=OpenStrongArmorCardViewCommand}">
+            <Button.Background>
+                <ImageBrush ImageSource ="/Images/StrongArmorImg.png" Stretch="Uniform"></ImageBrush>
+            </Button.Background>
+        </Button>
         <Button Content="Strong Damage Card" Grid.Column="1" Command="{Binding Path=OpenStrongDamageCardViewCommand}"></Button>
         <Button Content="Strong Healing Card" Grid.Column="2" Command="{Binding Path=OpenStrongHealingCardViewCommand}"></Button>
         <Button Content="Strong Poison Card" Grid.Column="3" Command="{Binding Path=OpenStrongPoisonCardViewCommand}"></Button>

@@ -7,6 +7,27 @@
         mc:Ignorable="d"
         Title="FieldGridView" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Background="Blue" Grid.Row="1" Width="60" Height="30" Margin="0,100,160,0" Text="{Binding }"></TextBlock>
+        <TextBlock Text="" Background="Silver" Grid.Row="1"  Width="60" Height="30" Margin="0,0,160,100"></TextBlock>
+        <TextBlock Text="" Background="Red" Grid.Row="1"  Width="60" Height="30" Margin="0,0,160,0"></TextBlock>
+        <Button Background="Black" Grid.Row="1" Width="120" Margin="50,20,0,0" BorderBrush="Bisque" BorderThickness="3"></Button>
+        <Button Background="Black" Grid.Row="1" Width="120" Margin="50,20,0,3" BorderBrush="Bisque" BorderThickness="3"></Button>
+        <Button Background="Black" Grid.Row="1" Width="120" Margin="50,20,0,6" BorderBrush="Bisque" BorderThickness="3"></Button>
+        <Button Background="Black" Grid.Row="1" Width="120" Margin="50,20,0,9" BorderBrush="Bisque" BorderThickness="3"></Button>
+        <Button Background="Black" Grid.Row="1" Width="120" Margin="50,20,0,12" BorderBrush="Bisque" BorderThickness="3"></Button>
+        <Button Background="Black" Grid.Row="1" Width="120" Margin="50,20,0,15" BorderBrush="Bisque" BorderThickness="3"></Button>
+        <Button Background="Black" Grid.Row="1" Width="120" Margin="50,20,0,18" BorderBrush="Bisque" BorderThickness="3"></Button>
+        <Button Background="Black" Grid.Row="1" Width="120" Margin="50,20,0,21" BorderBrush="Bisque" BorderThickness="3"></Button>
+        <Button Background="Black" Grid.Row="1" Width="120" Margin="50,20,0,24" BorderBrush="Bisque" BorderThickness="3"></Button>
+        <Button Background="Black" Grid.Row="1" Width="120" Margin="50,20,0,27" BorderBrush="Bisque" BorderThickness="3"></Button>
     </Grid>
 </Window>
