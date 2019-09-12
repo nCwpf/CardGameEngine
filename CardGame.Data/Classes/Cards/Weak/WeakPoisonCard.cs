@@ -11,7 +11,7 @@ namespace CardGame.Data.Classes.Cards.Weak
     public class WeakPoisonCard : PoisonCard
     {
         public WeakPoisonCard(string image) : 
-            base(Constants.LowCost, Constants.LowPointsOfEffect, Constants.Duration, image)
+            base(Constants.LowCost, Constants.PoisonPointsOfEffect, Constants.LowDuration, image)
         {
         }
     }

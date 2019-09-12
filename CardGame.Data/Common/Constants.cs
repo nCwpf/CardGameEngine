@@ -22,8 +22,9 @@ namespace CardGame.Data.Common
 
         public static int PoisonPointsOfEffect => Constants.PointsOfEffect / 5;
 
-        public static int LowPoisonPointsOfEffect => Constants.PoisonPointsOfEffect / 2;
 
         public static int Duration => duration;
+
+        public static int LowDuration => duration / 2;
     }
 }

@@ -11,7 +11,7 @@ namespace CardGame.Data.Classes.Cards.Strong
     public class StrongPoisonCard : PoisonCard
     {
         public StrongPoisonCard(string image) : 
-            base(Constants.Cost, Constants.PointsOfEffect, Constants.Duration, image)
+            base(Constants.Cost, Constants.PoisonPointsOfEffect, Constants.Duration, image)
         {
         }
     }
