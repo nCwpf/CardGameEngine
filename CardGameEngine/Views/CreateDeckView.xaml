@@ -5,19 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CardGameEngine.Views"
         mc:Ignorable="d"
-        Title="CreateDeckView" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Button Content="Add Strong Armor Card" Grid.Row="0" Height="110" Width="150" Margin="0,0,600,0"></Button>
-        <Button Content="Add Strong Damage Card" Grid.Row="0" Height="110" Width="150" Margin="0,0,200,0"></Button>
-        <Button Content="Add Strong Healing Card" Grid.Row="0" Height="110" Width="150" Margin="200,0,0,0"></Button>
-        <Button Content="Add Strong Poison Card" Grid.Row="0" Height="110" Width="150" Margin="600,0,0,0"></Button>
-        <Button Content="Add Weak Armor Card" Grid.Row="1" Height="110" Width="150" Margin="0,0,600,0"></Button>
-        <Button Content="Add Weak Damage Card" Grid.Row="1" Height="110" Width="150" Margin="0,0,200,0"></Button>
-        <Button Content="Add Weak Healing Card" Grid.Row="1" Height="110" Width="150" Margin="200,0,0,0"></Button>
-        <Button Content="Add Weak Poison Card" Grid.Row="1" Height="110" Width="150" Margin="600,0,0,0"></Button>
-    </Grid>
+        Title="CreateDeck" Height="450" Width="660">
+    <Canvas>
+        <TextBlock Text="{Binding Cards.Count}" FontSize="30" Width="100" Canvas.Top="215"></TextBlock>
+        <Button Content="Add Strong Armor Card"  Canvas.Top="10" Canvas.Left="10" Height="110" Width="150"></Button>
+        <Button Content="Add Strong Damage Card"  Canvas.Top="10" Canvas.Left="170" Height="110" Width="150"></Button>
+        <Button Content="Add Strong Healing Card"  Canvas.Top="10" Canvas.Left="330" Height="110" Width="150"></Button>
+        <Button Content="Add Strong Poison Card"  Canvas.Top="10" Canvas.Left="490" Height="110" Width="150"></Button>
+        <Button Content="Add Weak Armor Card"  Canvas.Top="300" Canvas.Left="10" Height="110" Width="150"></Button>
+        <Button Content="Add Weak Damage Card"  Canvas.Top="300" Canvas.Left="170" Height="110" Width="150"></Button>
+        <Button Content="Add Weak Healing Card"  Canvas.Top="300" Canvas.Left="330" Height="110" Width="150"></Button>
+        <Button Content="Add Weak Poison Card"  Canvas.Top="300" Canvas.Left="490" Height="110" Width="150"></Button>
+    </Canvas>
 </Window>

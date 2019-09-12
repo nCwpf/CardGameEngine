@@ -3,31 +3,379 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:local="clr-namespace:CardGameEngine.Views"
+        xmlns:controls="clr-namespace:CardGameEngine.Controls"
         mc:Ignorable="d"
-        Title="FieldGridView" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <TextBlock Background="Blue" Grid.Row="1" Width="60" Height="30" Margin="0,100,160,0" Text="{Binding }"></TextBlock>
-        <TextBlock Text="" Background="Silver" Grid.Row="1"  Width="60" Height="30" Margin="0,0,160,100"></TextBlock>
-        <TextBlock Text="" Background="Red" Grid.Row="1"  Width="60" Height="30" Margin="0,0,160,0"></TextBlock>
-        <Button Background="Black" Grid.Row="1" Width="120" Margin="50,20,0,0" BorderBrush="Bisque" BorderThickness="3"></Button>
-        <Button Background="Black" Grid.Row="1" Width="120" Margin="50,20,0,3" BorderBrush="Bisque" BorderThickness="3"></Button>
-        <Button Background="Black" Grid.Row="1" Width="120" Margin="50,20,0,6" BorderBrush="Bisque" BorderThickness="3"></Button>
-        <Button Background="Black" Grid.Row="1" Width="120" Margin="50,20,0,9" BorderBrush="Bisque" BorderThickness="3"></Button>
-        <Button Background="Black" Grid.Row="1" Width="120" Margin="50,20,0,12" BorderBrush="Bisque" BorderThickness="3"></Button>
-        <Button Background="Black" Grid.Row="1" Width="120" Margin="50,20,0,15" BorderBrush="Bisque" BorderThickness="3"></Button>
-        <Button Background="Black" Grid.Row="1" Width="120" Margin="50,20,0,18" BorderBrush="Bisque" BorderThickness="3"></Button>
-        <Button Background="Black" Grid.Row="1" Width="120" Margin="50,20,0,21" BorderBrush="Bisque" BorderThickness="3"></Button>
-        <Button Background="Black" Grid.Row="1" Width="120" Margin="50,20,0,24" BorderBrush="Bisque" BorderThickness="3"></Button>
-        <Button Background="Black" Grid.Row="1" Width="120" Margin="50,20,0,27" BorderBrush="Bisque" BorderThickness="3"></Button>
-    </Grid>
+        Title="FieldGridView" Height="450" Width="1000">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadDeckCommand}" >
+            </i:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+
+
+    <Canvas>
+        <Button Content="End Turn" Width="100" Canvas.Left="800" Canvas.Top="200" x:Name="EndButton"/>
+        <Rectangle Width="100" Height="130" Canvas.Left="800" Canvas.Top="250" Fill="Black" Panel.ZIndex="1" />
+        <Rectangle Width="100" Height="130" Canvas.Left="800" Canvas.Top="50" Fill="Black" Panel.ZIndex="1" />
+        <Button Width="100" Height="130" BorderThickness="1" Canvas.Top="250" Canvas.Left="70" Name="Card1" Command="{Binding Path=FirstCardCommand}">
+            <Button.Background>
+                <ImageBrush ImageSource ="{Binding Path= FirstCard.Image}" Stretch="Uniform"></ImageBrush>
+            </Button.Background>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="70" To="200" Duration="0:0:0.5" Storyboard.TargetProperty="(Canvas.Left)" AutoReverse="False" />
+                            <DoubleAnimation From="250" To="350" Duration="0:0:0.5" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="200" To="800" Duration="0:0:3.5" Storyboard.TargetProperty="(Canvas.Left)" AutoReverse="False" />
+                            <DoubleAnimation From="350" To="175" Duration="0:0:1.0" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                            <DoubleAnimation From="175" To="250" BeginTime="0:0:1.0" Duration="0:0:2.5" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="200" To="800" Duration="0:0:3.5" Storyboard.TargetProperty="(Canvas.Left)" AutoReverse="False" />
+                            <DoubleAnimation From="350" To="175" Duration="0:0:1.0" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                            <DoubleAnimation From="175" To="250" BeginTime="0:0:1.0" Duration="0:0:2.5" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <BooleanAnimationUsingKeyFrames Storyboard.TargetName="EndButton" Storyboard.TargetProperty="IsClicked">
+                                <DiscreteBooleanKeyFrame KeyTime="0:0:0" Value="True"/>
+                            </BooleanAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+
+        </Button>
+        <Button Width="100" Height="130" BorderThickness="1" Canvas.Top="250" Canvas.Left="70" Command="{Binding Path=SecondCardCommand}">
+            <Button.Background>
+                <ImageBrush ImageSource ="{Binding SecondCard.Image}" Stretch="Uniform"></ImageBrush>
+            </Button.Background>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="70" To="300" Duration="0:0:0.5" Storyboard.TargetProperty="(Canvas.Left)" AutoReverse="False" />
+                            <DoubleAnimation From="250" To="350" Duration="0:0:0.5" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="300" To="800" Duration="0:0:3.5" Storyboard.TargetProperty="(Canvas.Left)" AutoReverse="False" />
+                            <DoubleAnimation From="350" To="175" Duration="0:0:1.0" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                            <DoubleAnimation From="175" To="250" BeginTime="0:0:1.0" Duration="0:0:2.5" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button Width="100" Height="130" BorderThickness="1" Canvas.Top="250" Canvas.Left="70" Command="{Binding Path=ThirdCardCommand}">
+            <Button.Background>
+                <ImageBrush ImageSource ="{Binding ThirdCard.Image}" Stretch="Uniform"></ImageBrush>
+            </Button.Background>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="70" To="400" Duration="0:0:0.5" Storyboard.TargetProperty="(Canvas.Left)" AutoReverse="False" />
+                            <DoubleAnimation From="250" To="350" Duration="0:0:0.5" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="400" To="800" Duration="0:0:3.5" Storyboard.TargetProperty="(Canvas.Left)" AutoReverse="False" />
+                            <DoubleAnimation From="350" To="175" Duration="0:0:1.0" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                            <DoubleAnimation From="175" To="250" BeginTime="0:0:1.0" Duration="0:0:2.5" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button Width="100" Height="130" BorderThickness="1" Canvas.Top="250" Canvas.Left="70" Command="{Binding Path=ForthCardCommand}">
+            <Button.Background>
+                <ImageBrush ImageSource ="{Binding ForthCard.Image}" Stretch="Uniform"></ImageBrush>
+            </Button.Background>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="70" To="500" Duration="0:0:0.5" Storyboard.TargetProperty="(Canvas.Left)" AutoReverse="False" />
+                            <DoubleAnimation From="250" To="350" Duration="0:0:0.5" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="500" To="800" Duration="0:0:3.5" Storyboard.TargetProperty="(Canvas.Left)" AutoReverse="False" />
+                            <DoubleAnimation From="350" To="175" Duration="0:0:1.0" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                            <DoubleAnimation From="175" To="250" BeginTime="0:0:1.0" Duration="0:0:2.5" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button Width="100" Height="130" BorderThickness="1" Canvas.Top="250" Canvas.Left="70" Command="{Binding Path=FifthCardCommand}">
+            <Button.Background>
+                <ImageBrush ImageSource ="{Binding FifthCard.Image}" Stretch="Uniform"></ImageBrush>
+            </Button.Background>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="70" To="600" Duration="0:0:0.5" Storyboard.TargetProperty="(Canvas.Left)" AutoReverse="False" />
+                            <DoubleAnimation From="250" To="350" Duration="0:0:0.5" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="600" To="800" Duration="0:0:3.5" Storyboard.TargetProperty="(Canvas.Left)" AutoReverse="False" />
+                            <DoubleAnimation From="350" To="175" Duration="0:0:1.0" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                            <DoubleAnimation From="175" To="250" BeginTime="0:0:1.0" Duration="0:0:2.5" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <TextBlock Canvas.Top="265" Canvas.Left="0" Panel.ZIndex="1" Foreground="Black"
+                     Text="{Binding PlayerHealth}" Margin="0,50,0,0" FontSize="10"/>
+        <TextBlock Canvas.Top="315" Canvas.Left="0" Foreground="Black"
+                     Text="{Binding PlayerMana}" Margin="0,50,0,0" Panel.ZIndex="1"/>
+        <TextBlock Canvas.Top="215" Canvas.Left="0" Foreground="Black" Panel.ZIndex="1"
+                     Text="{Binding PlayerArmor}" Margin="0,50,0,0"/>
+
+
+        <Ellipse Width="50" Height="50" Fill="Silver" Canvas.Top="250" />
+
+        <Ellipse Width="50" Height="50" Fill="Red" Canvas.Top="300"></Ellipse>
+        <Ellipse Width="50" Height="50" Fill="Blue" Canvas.Top="350"></Ellipse>
+        <ItemsControl 
+              ItemsSource="{Binding Cards}" Canvas.Top="250" Canvas.Left="70">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <DataTemplate.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontSize" Value="18"/>
+
+                        </Style>
+                    </DataTemplate.Resources>
+                    <Grid>
+                        <Rectangle Fill="Silver" Stroke="Blue" StrokeThickness="1"/>
+                        <DockPanel>
+                            <TextBlock
+                     Text="{Binding Path=Priority}"/>
+                            <TextBlock
+                     Text="{Binding Path=TaskName}"/>
+                        </DockPanel>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </ItemsControl.Triggers>
+            <!--Use the ItemContainerStyle property to specify the appearance
+      of the element that contains the data. This ItemContainerStyle
+      gives each item container a margin and a width. There is also
+      a trigger that sets a tooltip that shows the description of
+      the data object when the mouse hovers over the item container.-->
+            <ItemsControl.ItemContainerStyle>
+                <Style>
+                    <Setter Property="Control.Width" Value="100"/>
+                    <Setter Property="Control.Margin" Value="-10"/>
+                    <Style.Triggers>
+
+                    </Style.Triggers>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+        </ItemsControl> <Button Width="100" Height="130" BorderThickness="1" Canvas.Top="50" Canvas.Left="70">
+            <Button.Background>
+                <ImageBrush ImageSource ="{Binding Cards[0].Image}" Stretch="Uniform"></ImageBrush>
+            </Button.Background>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="70" To="200" Duration="0:0:0.5" Storyboard.TargetProperty="(Canvas.Left)" AutoReverse="False" />
+                            <DoubleAnimation From="50" To="-60" Duration="0:0:0.5" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="200" To="800" Duration="0:0:3.5" Storyboard.TargetProperty="(Canvas.Left)" AutoReverse="False" />
+                            <DoubleAnimation From="-60" To="70" Duration="0:0:1.0" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                            <DoubleAnimation From="70" To="50" BeginTime="0:0:1.0" Duration="0:0:2.5" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+
+        </Button>
+        <Button Width="100" Height="130" BorderThickness="1" Canvas.Top="50" Canvas.Left="70">
+            <Button.Background>
+                <ImageBrush ImageSource ="{Binding Cards[0].Image}" Stretch="Uniform"></ImageBrush>
+            </Button.Background>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="70" To="300" Duration="0:0:0.5" Storyboard.TargetProperty="(Canvas.Left)" AutoReverse="False" />
+                            <DoubleAnimation From="59" To="-60" Duration="0:0:0.5" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="300" To="800" Duration="0:0:3.5" Storyboard.TargetProperty="(Canvas.Left)" AutoReverse="False" />
+                            <DoubleAnimation From="-60" To="70" Duration="0:0:1.0" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                            <DoubleAnimation From="70" To="50" BeginTime="0:0:1.0" Duration="0:0:2.5" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button Width="100" Height="130" BorderThickness="1" Canvas.Top="50" Canvas.Left="70">
+            <Button.Background>
+                <ImageBrush ImageSource ="{Binding Cards[0].Image}" Stretch="Uniform"></ImageBrush>
+            </Button.Background>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="70" To="400" Duration="0:0:0.5" Storyboard.TargetProperty="(Canvas.Left)" AutoReverse="False" />
+                            <DoubleAnimation From="50" To="-60" Duration="0:0:0.5" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="400" To="800" Duration="0:0:3.5" Storyboard.TargetProperty="(Canvas.Left)" AutoReverse="False" />
+                            <DoubleAnimation From="-60" To="70" Duration="0:0:1.0" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                            <DoubleAnimation From="70" To="50" BeginTime="0:0:1.0" Duration="0:0:2.5" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button Width="100" Height="130" BorderThickness="1" Canvas.Top="50" Canvas.Left="70">
+            <Button.Background>
+                <ImageBrush ImageSource ="{Binding Cards[0].Image}" Stretch="Uniform"></ImageBrush>
+            </Button.Background>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="70" To="500" Duration="0:0:0.5" Storyboard.TargetProperty="(Canvas.Left)" AutoReverse="False" />
+                            <DoubleAnimation From="50" To="-60" Duration="0:0:0.5" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="500" To="800" Duration="0:0:3.5" Storyboard.TargetProperty="(Canvas.Left)" AutoReverse="False" />
+                            <DoubleAnimation From="-60" To="70" Duration="0:0:1.0" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                            <DoubleAnimation From="70" To="50" BeginTime="0:0:1.0" Duration="0:0:2.5" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button Width="100" Height="130" BorderThickness="1" Canvas.Top="50" Canvas.Left="70">
+            <Button.Background>
+                <ImageBrush ImageSource ="{Binding Cards[0].Image}" Stretch="Uniform"></ImageBrush>
+            </Button.Background>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="70" To="600" Duration="0:0:0.5" Storyboard.TargetProperty="(Canvas.Left)" AutoReverse="False" />
+                            <DoubleAnimation From="50" To="-60" Duration="0:0:0.5" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="600" To="800" Duration="0:0:3.5" Storyboard.TargetProperty="(Canvas.Left)" AutoReverse="False" />
+                            <DoubleAnimation From="-60" To="70" Duration="0:0:1.0" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                            <DoubleAnimation From="70" To="50" BeginTime="0:0:1.0" Duration="0:0:2.5" Storyboard.TargetProperty="(Canvas.Top)" AutoReverse="False" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <TextBlock Canvas.Top="65" Canvas.Left="0" Panel.ZIndex="1" Foreground="Black"
+                     Text="{Binding EnemyHealth}" Width="50" Margin="0,50,0,0" FontSize="10"/>
+        <TextBlock Canvas.Top="115" Canvas.Left="0" Foreground="Black"
+                     Text="{Binding EnemyMana}" Margin="0,50,0,0" Panel.ZIndex="1"/>
+        <TextBlock Canvas.Top="15" Canvas.Left="0" Foreground="Black" Panel.ZIndex="1"
+                     Text="{Binding EnemyArmor}" Margin="0,50,0,0"/>
+
+
+        <Ellipse Width="50" Height="50" Fill="Silver" Canvas.Top="50" />
+
+        <Ellipse Width="50" Height="50" Fill="Red" Canvas.Top="100"></Ellipse>
+        <Ellipse Width="50" Height="50" Fill="Blue" Canvas.Top="150"></Ellipse>
+        <ItemsControl 
+              ItemsSource="{Binding Cards}" Canvas.Top="50" Canvas.Left="70">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <DataTemplate.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontSize" Value="18"/>
+
+                        </Style>
+                    </DataTemplate.Resources>
+                    <Grid>
+                        <Rectangle Fill="Silver" Stroke="Blue" StrokeThickness="1"/>
+                        <DockPanel>
+                            <TextBlock
+                     Text="{Binding Path=Priority}"/>
+                            <TextBlock
+                     Text="{Binding Path=TaskName}"/>
+                        </DockPanel>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemContainerStyle>
+                <Style>
+                    <Setter Property="Control.Width" Value="100"/>
+                    <Setter Property="Control.Margin" Value="-10"/>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+        </ItemsControl>
+    </Canvas>
 </Window>

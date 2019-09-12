@@ -3,6 +3,7 @@ using CardGame.Data.Classes.Cards.Weak;
 using CardGame.Data.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,12 +14,20 @@ namespace CardGameEngine.ViewModels
     {
         public CreateDeckViewModel()
         {
-            Cards = new List<ICard>();
+            Cards = new ObservableCollection<ICard>();
             AddStrongDamageCommand = new RelayCommand<ICard>(AddStrongDamageCard);
             AddStrongArmorCommand = new RelayCommand<ICard>(AddStrongArmorCard);
             AddStrongHealingCommand = new RelayCommand<ICard>(AddStrongHealingCard);
+            AddStrongPoisonCommand = new RelayCommand<ICard>(AddStrongPoisonCard);
+            AddWeakArmorCommand = new RelayCommand<ICard>(AddWeakArmorCard);
+            AddWeakDamageCommand = new RelayCommand<ICard>(AddWeakDamageCard);
+
 
         }
+
+        public int CardsNeeded => 40;
+
+        public int CardsAdded => Cards.Count;
 
         public RelayCommand<ICard> AddStrongDamageCommand { get; set; }
         public RelayCommand<ICard> AddStrongArmorCommand { get; set; }
@@ -30,7 +39,7 @@ namespace CardGameEngine.ViewModels
         public RelayCommand<ICard> AddWeakPoisonCommand { get; set; }
 
 
-        public List<ICard> Cards { get; set; }
+        public ObservableCollection<ICard> Cards { get; set; }
 
         private void AddStrongDamageCard(ICard card)
         {
